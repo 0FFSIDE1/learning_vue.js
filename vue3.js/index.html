@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="" id="app">
+        <h1 v-text="deckName"></h1>
+
+        <div class="card">
+            <h2 v-text="flipped ? '' : flashCards[0].question "></h2>
+            <p v-text="flipped ? '' : flashCards[0].answer "></p>
+        </div>
+        <input type="text" :value="userAnswer" placeholder="Type your answer here">
+
+        <a :href="getHintUrl">Get Hint</a>
+    </div>    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
