@@ -11,8 +11,7 @@ const FlashCardApp = {
             ],
             flipped: false,
             userAnswer: 'flip',
-
-            
+            index: 0,
         };
     },
     computed: {
@@ -20,6 +19,14 @@ const FlashCardApp = {
             return `https://google.com/search?q=${encodeURIComponent(this.flashCards[0].question)}`;
 
         }
-    }
+    },
+    methods: {
+        move(change) {
+            if (this.flashCards[this.index + change]) {
+                this.index += change;
+                this.flipped = false;
+            }
+        }
+    },
 };
 Vue.createApp(FlashCardApp).mount('#app');

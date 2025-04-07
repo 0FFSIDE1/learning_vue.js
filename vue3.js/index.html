@@ -12,12 +12,16 @@
         <h1 v-text="deckName"></h1>
         <input type="text" v-model="userAnswer" placeholder="Type your answer here">
 
-        <div class="card">
-            <h2 v-text="userAnswer == 'flip' ? '' : flashCards[0].question "></h2>
-            <p v-text="userAnswer == 'flip' ? flashCards[0].answer : '' "></p>
+        <div @click="flipped = !flipped" class="card">
+            <h2 v-text="flipped ? '' : flashCards[index].question "></h2>
+            <p v-text="flipped ? flashCards[index].answer : '' "></p>
         </div>
-       
-
+        
+        <div class="nextBtn">
+            <button @click="move(-1)" type="button">&#8592;</button>
+            <button @click="move(1)" type="button">&#8594;</button>
+        </div>
+        
         <a :href="getHintUrl">Get Hint</a>
     </div>    
 
