@@ -10,6 +10,8 @@ const FlashCardApp = {
                 { question: 'Me gusta aprender idiomas.', answer: 'I like learning languages.' }
             ],
             flipped: false,
+            userAnswer: 'flip',
+
             
         };
     },
