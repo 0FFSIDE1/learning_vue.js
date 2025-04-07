@@ -13,7 +13,7 @@
         <input type="text" v-model="userAnswer" placeholder="Type your answer here">
 
         <div @click="flipped = !flipped" class="card">
-            <h2 v-show="!flipped" v-text="questions"></h2>
+            <h2 v-cloak v-show="!flipped">{{questions}}</h2>
             <p v-show="flipped" v-text="answers"></p>
         </div>
         
