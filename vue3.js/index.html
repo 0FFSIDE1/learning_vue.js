@@ -13,8 +13,8 @@
         <input type="text" v-model="userAnswer" placeholder="Type your answer here">
 
         <div @click="flipped = !flipped" class="card">
-            <h2 v-text="flipped ? '' : flashCards[index].question "></h2>
-            <p v-text="flipped ? flashCards[index].answer : '' "></p>
+            <h2 v-if="!flipped" v-text="questions"></h2>
+            <p v-else v-text="answers"></p>
         </div>
         
         <div class="nextBtn">
@@ -22,8 +22,22 @@
             <button @click="move(1)" type="button">&#8594;</button>
         </div>
         
-        <a :href="getHintUrl">Get Hint</a>
-    </div>    
+        <a :href="getHintUrl() ">Get Hint</a>
+    </div>  
+    
+    <div class="form-container" id="form-app">
+        <h2 v-text="title"></h2>
+        <form action="#" method="post">
+          <label for="name">Deck Name</label>
+          <input v-model="deckName" type="text" id="name" name="name" placeholder="Enter deck name" required>
+    
+          <label for="description">Description</label>
+          <textarea v-model="deckDescription" id="description" name="description" rows="4" placeholder="Enter description" required></textarea>
+    
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>

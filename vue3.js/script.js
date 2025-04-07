@@ -15,9 +15,11 @@ const FlashCardApp = {
         };
     },
     computed: {
-        getHintUrl() {
-            return `https://google.com/search?q=${encodeURIComponent(this.flashCards[0].question)}`;
-
+        questions() {
+            return this.flashCards[this.index].question;
+        },
+        answers() {
+            return this.flashCards[this.index].answer;
         }
     },
     methods: {
@@ -26,7 +28,23 @@ const FlashCardApp = {
                 this.index += change;
                 this.flipped = false;
             }
-        }
+        },
+        getHintUrl() {
+            return `https://google.com/search?q=${encodeURIComponent(this.flashCards[0].question)}`;
+
+        },
     },
 };
+
+const formApp = {
+    data(){
+        return {
+            title: 'Deck Form',
+            deckName: 'Spanish Vocabulary',
+            deckDescription: 'A collection of common Spanish phrases and their English translations.',
+        }
+    }
+}
+
 Vue.createApp(FlashCardApp).mount('#app');
+Vue.createApp(formApp).mount('#form-app');
