@@ -13,8 +13,8 @@
         <input type="text" v-model="userAnswer" placeholder="Type your answer here">
 
         <div @click="flipped = !flipped" class="card">
-            <h2 v-if="!flipped" v-text="questions"></h2>
-            <p v-else v-text="answers"></p>
+            <h2 v-show="!flipped" v-text="questions"></h2>
+            <p v-show="flipped" v-text="answers"></p>
         </div>
         
         <div class="nextBtn">
