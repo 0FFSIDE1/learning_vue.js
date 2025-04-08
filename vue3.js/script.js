@@ -12,6 +12,7 @@ const FlashCardApp = {
             flipped: false,
             userAnswer: 'flip',
             index: 0,
+            editIndex: -1,
         };
     },
     computed: {
@@ -45,6 +46,7 @@ const formApp = {
         }
     }
 }
+
 
 Vue.createApp(FlashCardApp).mount('#app');
 Vue.createApp(formApp).mount('#form-app');
